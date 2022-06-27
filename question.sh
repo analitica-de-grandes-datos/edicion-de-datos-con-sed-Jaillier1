@@ -52,5 +52,5 @@ sed 's/\([0-9]\)\/\([0-9]\)\/\([0-9][0-9]*\)/\3-0\2-0\1/g' datos7 > datos8
 sed 's/,\\N,\\N,/,\\N,\\N,\\N/g' datos8 > datos9
 sed 's/,C,\\N,/,C,\\N,\\N/g' datos9 > datos10
 sed 's/a/A/g' datos10 > datos11
-sed 's/c/C/g´' datos11 > output.csv
+sed 's/c/C/g' datos11 > output.csv
 sed -n '1,12p' output.csv
