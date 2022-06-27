@@ -42,6 +42,16 @@
 #  >>> Escriba su codigo a partir de este punto <<<
 #
 
-sed 's/,\([0-9]\)/.\1/' | sed 's/;/,/g' | sed 's-\\n-\\N-g' | sed 's-,N-,\\N-g' | sed 's-,,-,\\N,-g' | sed 's/\([0-9][0-9]\)\/\([0-9][0-9]\)\/\([0-9][0-9]\)/20\3-\2-\1/g' data.csv > datos
-sed 's/\([0-9]\)\/\([0-9]\)\/\([0-9][0-9]*\)/\3-0\2-0\1/g' | sed 's/,\\N,\\N,/,\\N,\\N,\\N/g' | sed 's/,C,\\N,/,C,\\N,\\N/g' | sed 's/a/A/g' | sed 's/c/C/g´' datos > output.csv
+sed 's/,\([0-9]\)/.\1/' data.csv > datos1
+sed 's/;/,/g' datos1 > datos2
+sed 's-\\n-\\N-g' datos2 > datos3
+sed 's-,N-,\\N-g' datos3 > datos4
+sed 's-,,-,\\N,-g' datos4 > datos5
+sed 's-n\\N-g' datos5 > datos6
+sed 's/\([0-9][0-9]\)\/\([0-9][0-9]\)\/\([0-9][0-9]\)/20\3-\2-\1/g' datos6 > datos7
+sed 's/\([0-9]\)\/\([0-9]\)\/\([0-9][0-9]*\)/\3-0\2-0\1/g' datos7 > datos8
+sed 's/,\\N,\\N,/,\\N,\\N,\\N/g' datos8 > datos9
+sed 's/,C,\\N,/,C,\\N,\\N/g' datos9 > datos10
+sed 's/a/A/g' datos10 > datos11
+sed 's/c/C/g´' datos11 > output.csv
 sed -n '1,12p´output.csv
